@@ -18,7 +18,7 @@ pipelines:
           integrations:
             - name: art_v
           inputResources:
-            - name:         <gitrepo resource>         # required
+            - name: maven_repo1
         execution:
           onStart:
             - echo "Preparing for work..."
