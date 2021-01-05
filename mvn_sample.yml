@@ -4,7 +4,7 @@ resources:
     type: GitRepo
     configuration:
       gitProvider: github_neha
-      path: neha-mishraa/project-example
+      path: neha-mishraa/project-examples
 pipelines:
   - name: mvn_sample
     steps:
@@ -21,6 +21,7 @@ pipelines:
             - name: maven_repo1
         execution:
           onStart:
+            - printenv
             - javac -version
             - mvn --version
           onSuccess:
