@@ -13,8 +13,10 @@ pipelines:
         type: MvnBuild
         configuration:
           mvnCommand: clean install
+#           sourceLocation: ./artifactory-maven-plugin-example
+#           configFileLocation: $res_maven_repo1_resourcePath/artifactory-maven-plugin-example
           sourceLocation: ./artifactory-maven-plugin-example
-          configFileLocation: $res_maven_repo1_resourcePath/artifactory-maven-plugin-example
+          configFileLocation: .
           configFileName: mvn-art-config
           integrations:
             - name: art_v
@@ -22,11 +24,11 @@ pipelines:
             - name: maven_repo1
         execution:
           onStart:
-            - printenv
-            - echo $res_maven_repo1_resourcePath
-            - ls $res_maven_repo1_resourcePath
-            - ls $res_maven_repo1_resourcePath/artifactory-maven-plugin-example
-            - cat $res_maven_repo1_resourcePath/artifactory-maven-plugin-example/mvn-art-config
+#             - printenv
+#             - echo $res_maven_repo1_resourcePath
+#             - ls $res_maven_repo1_resourcePath
+#             - ls $res_maven_repo1_resourcePath/artifactory-maven-plugin-example
+#             - cat $res_maven_repo1_resourcePath/artifactory-maven-plugin-example/mvn-art-config
             - javac -version
             - mvn --version
           onSuccess:
