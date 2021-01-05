@@ -1,4 +1,3 @@
-  
 resources:
   - name: maven_repo1
     type: GitRepo
@@ -24,6 +23,9 @@ pipelines:
         execution:
           onStart:
             - printenv
+            - echo $res_maven_repo1_resourcePath
+            - ls $res_maven_repo1_resourcePath
+            - ls $res_maven_repo1_resourcePath/artifactory-maven-plugin-example
             - javac -version
             - mvn --version
           onSuccess:
