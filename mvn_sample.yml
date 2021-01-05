@@ -21,7 +21,8 @@ pipelines:
             - name: maven_repo1
         execution:
           onStart:
-            - echo "Preparing for work..."
+            - javac -version
+            - mvn --version
           onSuccess:
             - echo "Job well done!"
           onFailure:
