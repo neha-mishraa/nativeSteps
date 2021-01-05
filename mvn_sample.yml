@@ -12,8 +12,8 @@ pipelines:
         type: MvnBuild
         configuration:
           mvnCommand: clean install
-          sourceLocation: artifactory-maven-plugin-example
-          configFileLocation: artifactory-maven-plugin-example
+          sourceLocation: ./artifactory-maven-plugin-example
+          configFileLocation: .
           configFileName: mvn-art-config
           integrations:
             - name: art_v
