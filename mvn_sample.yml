@@ -4,6 +4,8 @@ resources:
     type: GitRepo
     configuration:
       gitProvider: github_neha
+      branches:
+        include: ^master$
       path: neha-mishraa/project-examples
 pipelines:
   - name: mvn_sample
@@ -12,7 +14,7 @@ pipelines:
         type: MvnBuild
         configuration:
           mvnCommand: clean install
-          sourceLocation: artifactory-maven-plugin-example
+          sourceLocation: ./artifactory-maven-plugin-example
           configFileLocation: .
           configFileName: mvn-art-config
           integrations:
