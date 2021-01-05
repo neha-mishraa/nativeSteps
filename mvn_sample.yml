@@ -26,7 +26,7 @@ pipelines:
             - echo $res_maven_repo1_resourcePath
             - ls $res_maven_repo1_resourcePath
             - ls $res_maven_repo1_resourcePath/artifactory-maven-plugin-example
-            - cat mvn-art-config
+            - cat $res_maven_repo1_resourcePath/artifactory-maven-plugin-example/mvn-art-config
             - javac -version
             - mvn --version
           onSuccess:
