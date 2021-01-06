@@ -1,0 +1,60 @@
+resources:
+  - name: rsc_BI_N_PB_0010_2
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: art_v
+      buildName: promotoed-full-gradle-native
+      buildNumber: 1
+  - name: rsc_BI_N_PB_0010_1
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: art_v
+      buildName: full-gradle-native
+      buildNumber: 1
+  - name: rsc_GR_N_PB_0010
+    type: GitRepo
+    configuration:
+      gitProvider: github_neha
+      path: neha-mishraa/project-examples
+      
+pipelines:
+  - name: N_PB_0010
+    configuration:
+        nodePool: win_2019
+    steps:
+      - name: N_PB_0010_1
+        type: GradleBuild
+        configuration:
+          gradleCommand: clean artifactoryPublish -b build.gradle
+          sourceLocation: gradle-examples/gradle-example-minimal
+          configFileLocation: .
+          configFileName: gradle-art-config
+          inputResources:
+            - name: rsc_GR_N_PB_0010
+          integrations:
+            - name: art_v
+        execution:
+          onStart:
+            - javac -version
+            - gradle --version 
+            
+      - name: N_PB_0010_2
+        type: PublishBuildInfo
+        execution:
+          onStart:
+            - echo "hello"
+        configuration:
+          inputSteps:
+            - name: N_PB_0010_1
+          outputResources:
+            - name: rsc_BI_N_PB_0010_1
+            
+      - name: N_PB_0010_3
+        type: PromoteBuild
+        configuration:
+          targetRepository: test-generic-local
+          copy: true
+          inputResources:
+            - name: rsc_BI_N_PB_0010_1
+          outputResources:
+            - name: rsc_BI_N_PB_0010_2
