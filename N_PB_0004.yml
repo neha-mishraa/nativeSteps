@@ -59,15 +59,14 @@ pipelines:
             - name: rsc_BI_N_PB_0004_1
           outputResources:
             - name: rsc_BI_N_PB_0004_2
-            ${buildStepName}_buildName
             
       - name: N_PB_0004_4
         type: PublishBuildInfo
         execution:
           onStart:
             - echo "hello"
-            - echo N_PB_0004_3_buildName
-            - echo N_PB_0004_3_buildNumber
+            - echo ${buildStepName}_buildName
+            - echo ${buildStepName}_buildNumber
         configuration:
           inputSteps:
             - name: N_PB_0004_3
