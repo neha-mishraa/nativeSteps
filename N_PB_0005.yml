@@ -48,7 +48,7 @@ pipelines:
         configuration:
           targetRepository: test-generic-local
           copy: true
-        inputResources:
-          - name: rsc_BI_N_PB_0005_1
-        outputResources:
-          - name: rsc_BI_N_PB_0005_2
+          inputResources:
+            - name: rsc_BI_N_PB_0005_1
+          outputResources:
+            - name: rsc_BI_N_PB_0005_2
