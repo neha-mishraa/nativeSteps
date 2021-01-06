@@ -34,18 +34,16 @@ pipelines:
           onStart:
             - javac -version
             - gradle --version    
-  - name: N_PB_0001_2
-    type: PublishBuildInfo
-    execution:
-      onStart:
-        - echo "hello"
-    configuration:
-      inputSteps:
-        - name: N_PB_0001_1
-      outputResources:
-        - name: vijay_gradle
-  - name: N_PB_0001
-    steps:
+      - name: N_PB_0001_2
+        type: PublishBuildInfo
+        execution:
+          onStart:
+            - echo "hello"
+        configuration:
+          inputSteps:
+            - name: N_PB_0001_1
+          outputResources:
+            - name: rsc_BI_N_PB_0001_1
       - name: N_PB_0001_1
         type: PromoteBuild
         configuration:
