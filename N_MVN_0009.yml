@@ -1,0 +1,32 @@
+resources:
+  - name: rsc_repo_N_MVN_0009
+    type: GitRepo
+    configuration:
+      gitProvider: github_neha
+      branches:
+        include: ^master$
+      path: neha-mishraa/project-examples/artifactory-maven-plugin-example
+pipelines:
+  - name: N_MVN_0009
+    steps:
+      - name: N_MVN_0009_1
+        type: MvnBuild
+        configuration:
+          mvnCommand: clean install
+          sourceLocation: .
+          configFileLocation: .
+          configFileName: mvn-art-config
+          integrations:
+            - name: art_v
+          inputResources:
+            - name: rsc_repo_N_MVN_0009
+        execution:
+          onStart:
+            - javac -version
+            - mvn --version
+          onSuccess:
+            - echo "Job well done!"
+          onFailure:
+            - echo "uh oh, something went wrong"
+          onComplete:                                 
+            - echo "Cleaning up some stuff"
