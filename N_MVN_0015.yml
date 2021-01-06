@@ -24,11 +24,6 @@ pipelines:
             - name: rsc_GR_N_MVN_0015
         execution:
           onStart:
-            - printenv
-            - echo $res_rsc_GR_N_MVN_0015_resourcePath
-            - ls $res_rsc_GR_N_MVN_0015_resourcePath
-            - ls $res_rsc_GR_N_MVN_0015_resourcePath/artifactory-maven-plugin-example
-            - cat $res_rsc_GR_N_MVN_0015_resourcePath/artifactory-maven-plugin-example/mvn-art-config
             - javac -version
             - mvn --version
           onSuccess:
