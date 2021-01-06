@@ -8,6 +8,8 @@ resources:
       path: neha-mishraa/project-examples
 pipelines:
   - name: N_MVN_0014
+    configuration:
+      nodePool: win_2019
     steps:
       - name: N_MVN_0014_1
         type: MvnBuild
