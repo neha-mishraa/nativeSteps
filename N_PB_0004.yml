@@ -66,8 +66,8 @@ pipelines:
         execution:
           onStart:
             - echo "hello"
-            - echo ${buildStepName}_buildName
-            - echo ${buildStepName}_buildNumber
+            - echo N_PB_0004_3_buildName
+            - echo N_PB_0004_3_buildNumber
         configuration:
           inputSteps:
             - name: N_PB_0004_3
