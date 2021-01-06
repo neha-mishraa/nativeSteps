@@ -1,5 +1,5 @@
 resources:
-  - name: maven_repo1
+  - name: rsc_GR_N_MVN_0001
     type: GitRepo
     configuration:
       gitProvider: github_neha
@@ -7,9 +7,9 @@ resources:
         include: ^master$
       path: neha-mishraa/project-examples
 pipelines:
-  - name: mvn_sample
+  - name: N_MVN_0001
     steps:
-      - name: mvnStep
+      - name: N_MVN_0001_1
         type: MvnBuild
         configuration:
           mvnCommand: clean install
@@ -19,7 +19,7 @@ pipelines:
           integrations:
             - name: art_v
           inputResources:
-            - name: maven_repo1
+            - name: rsc_GR_N_MVN_0001
         execution:
           onStart:
             - javac -version
