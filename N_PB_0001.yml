@@ -4,7 +4,7 @@ resources:
     configuration:
       sourceArtifactory: art_v
       #buildName: foo
-      #buildNumber: 1
+      buildNumber: 1
       #externalCI:           jenkinsIntegration
   - name: rsc_BI_N_PB_0002
     type: BuildInfo
