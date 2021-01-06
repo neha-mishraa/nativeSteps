@@ -26,7 +26,7 @@ pipelines:
             - name: rsc_BI_N_PB_0001
               trigger: false
           outputResources:
-            - name:         <BuildInfo resource>     # required
+            - name: rsc_BI_N_PB_0002
  
         execution:
           onStart:
