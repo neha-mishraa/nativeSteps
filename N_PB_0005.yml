@@ -50,5 +50,5 @@ pipelines:
           copy: true
         inputResources:
             - name: rsc_BI_N_PB_0001_1
-          outputResources:
-            - name: rsc_BI_N_PB_0001_2
+        outputResources:
+          - name: rsc_BI_N_PB_0001_2
