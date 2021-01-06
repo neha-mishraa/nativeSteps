@@ -1,21 +1,21 @@
 resources:
-  - name: rsc_GR_N_MVN_0011
+  - name: rsc_GR_N_MVN_0012
     type: GitRepo
     configuration:
       gitProvider: github_neha
       branches:
         include: ^master$
       path: neha-mishraa/project-examples
-  - name: rsc_BI_N_MVN_0011
+  - name: rsc_BI_N_MVN_0012
     type: BuildInfo
     configuration:
       sourceArtifactory: art_v
       buildName: build_test
       buildNumber: 1
 pipelines:
-  - name: N_MVN_0011
+  - name: N_MVN_0012
     steps:
-      - name: N_MVN_0011_1
+      - name: N_MVN_0012_1
         type: MvnBuild
         configuration:
           mvnCommand: clean install
@@ -27,9 +27,9 @@ pipelines:
           integrations:
             - name: art_v
           inputResources:
-            - name: rsc_GR_N_MVN_0011
+            - name: rsc_GR_N_MVN_0012
           outputResources:
-            - name: rsc_BI_N_MVN_0011
+            - name: rsc_BI_N_MVN_0012
         execution:
           onStart:
             - javac -version
