@@ -47,10 +47,7 @@ pipelines:
       - name: N_PB_0001_3
         type: PromoteBuild
         configuration:
-          targetRepository: test-generic-local repo
-          #includeDependencies:   <boolean>    # default false
-          #status:                <string> 
-          #comment:               <string>
+          targetRepository: test-generic-local
           copy: true
           inputResources:
             - name: rsc_BI_N_PB_0001_1
