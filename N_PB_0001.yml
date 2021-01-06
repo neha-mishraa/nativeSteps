@@ -1,0 +1,39 @@
+resources:
+  - name: rsc_BI_N_PB_0001
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: art_v
+      buildName: foo
+      buildNumber: 1
+      #externalCI:           jenkinsIntegration
+  - name: rsc_BI_N_PB_0002
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: art_v
+pipelines:
+  - name: N_PB_0001
+    steps:
+      - name: N_PB_0001_1
+        type: PromoteBuild
+        configuration:
+          targetRepository: test-generic-local repo
+          #includeDependencies:   <boolean>    # default false
+          #status:                <string> 
+          #comment:               <string>
+          #copy:                  <boolean>
+ 
+          inputResources:
+            - name: rsc_BI_N_PB_0001
+              trigger: false
+          outputResources:
+            - name:         <BuildInfo resource>     # required
+ 
+        execution:
+          onStart:
+            - echo "Preparing for work..."
+          onSuccess:
+            - echo "Job well done!"
+          onFailure:
+            - echo "uh oh, something went wrong"
+          onComplete: 
+            - echo "Cleaning up some stuff"
