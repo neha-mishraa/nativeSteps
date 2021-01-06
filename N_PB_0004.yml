@@ -42,9 +42,9 @@ pipelines:
           onStart:
             - echo "hello"
         configuration:
-        environmentVariables:
-            buildNumber: 1
-            buildName: promoted-full-gradle-native
+          environmentVariables:
+              buildNumber: 1
+              buildName: promoted-full-gradle-native
           inputSteps:
             - name: N_PB_0004_1
           outputResources:
