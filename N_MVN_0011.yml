@@ -13,7 +13,7 @@ resources:
       buildName: build_test
       buildNumber: 1
 pipelines:
-  - name: N_MVN_0010
+  - name: N_MVN_0011
     steps:
       - name: N_MVN_0011_1
         type: MvnBuild
