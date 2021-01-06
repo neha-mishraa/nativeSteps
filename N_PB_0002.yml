@@ -48,8 +48,8 @@ pipelines:
           copy: true
           inputResources:
             - name: rsc_BI_N_PB_0002_1
-          buildNumber: 1
-          buildName: promotoed-full-gradle-native
+          buildNumber: 3
+          buildName: promoted-full-gradle-native
           
-          #outputResources:
-          #  - name: rsc_BI_N_PB_0002_2
+          outputResources:
+           - name: rsc_BI_N_PB_0002_2
