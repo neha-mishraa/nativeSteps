@@ -1,0 +1,43 @@
+resources:
+  - name: rsc_GR_N_MVN_0024
+    type: GitRepo
+    configuration:
+      gitProvider: github_neha
+      branches:
+        include: ^master$
+      path: neha-mishraa/project-examples
+  - name: rsc_BI_N_MVN_0024
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: art_v
+      buildName: build_test
+      buildNumber: 1
+pipelines:
+  - name: N_MVN_0024
+    configuration:
+      nodePool: win_2019
+    steps:
+      - name: N_MVN_0024_1
+        type: MvnBuild
+        configuration:
+          mvnCommand: clean install
+          sourceLocation: artifactory-maven-plugin-example
+          configFileLocation: .
+          configFileName: mvn-art-config
+          autoPublishBuildInfo: true
+          integrations:
+            - name: art_v
+          inputResources:
+            - name: rsc_GR_N_MVN_0024
+          outputResources:
+            - name: rsc_BI_N_MVN_0024
+        execution:
+          onStart:
+            - javac -version
+            - mvn --version
+          onSuccess:
+            - echo "Job well done!"
+          onFailure:
+            - echo "uh oh, something went wrong"
+          onComplete:                                 
+            - echo "Cleaning up some stuff"
