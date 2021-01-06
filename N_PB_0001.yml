@@ -1,21 +1,22 @@
 resources:
-  - name: rsc_BI_N_PB_0001_1
-    type: BuildInfo
-    configuration:
-      sourceArtifactory: art_v
-      buildName: full-gradle-native
-      buildNumber: 1
   - name: rsc_BI_N_PB_0001_2
     type: BuildInfo
     configuration:
       sourceArtifactory: art_v
       buildName: promotoed-full-gradle-native
       buildNumber: 1
+  - name: rsc_BI_N_PB_0001_1
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: art_v
+      buildName: full-gradle-native
+      buildNumber: 1
   - name: rsc_GR_N_PB_0001
     type: GitRepo
     configuration:
       gitProvider: github_neha
       path: neha-mishraa/project-examples
+      
 pipelines:
   - name: N_PB_0001
     steps:
@@ -33,7 +34,8 @@ pipelines:
         execution:
           onStart:
             - javac -version
-            - gradle --version    
+            - gradle --version 
+            
       - name: N_PB_0001_2
         type: PublishBuildInfo
         execution:
@@ -44,6 +46,7 @@ pipelines:
             - name: N_PB_0001_1
           outputResources:
             - name: rsc_BI_N_PB_0001_1
+            
       - name: N_PB_0001_3
         type: PromoteBuild
         configuration:
@@ -51,7 +54,5 @@ pipelines:
           copy: true
           inputResources:
             - name: rsc_BI_N_PB_0001_1
-              trigger: false
           outputResources:
             - name: rsc_BI_N_PB_0001_2
-     
