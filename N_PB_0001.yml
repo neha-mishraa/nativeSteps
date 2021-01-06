@@ -3,13 +3,14 @@ resources:
     type: BuildInfo
     configuration:
       sourceArtifactory: art_v
-      #buildName: foo
+      buildName: full-gradle-native
       buildNumber: 1
-      #externalCI:           jenkinsIntegration
   - name: rsc_BI_N_PB_0002
     type: BuildInfo
     configuration:
       sourceArtifactory: art_v
+      buildName: promotoed-full-gradle-native
+      buildNumber: 1
 pipelines:
   - name: N_PB_0001
     steps:
@@ -20,14 +21,12 @@ pipelines:
           #includeDependencies:   <boolean>    # default false
           #status:                <string> 
           #comment:               <string>
-          #copy:                  <boolean>
- 
+          copy: true
           inputResources:
             - name: rsc_BI_N_PB_0001
               trigger: false
           outputResources:
             - name: rsc_BI_N_PB_0002
- 
         execution:
           onStart:
             - echo "Preparing for work..."
