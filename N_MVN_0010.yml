@@ -6,6 +6,10 @@ resources:
       branches:
         include: ^master$
       path: neha-mishraa/project-examples
+  - name: rsc_BI_N_MVN_0010
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: art_v
 pipelines:
   - name: N_MVN_0010
     steps:
@@ -21,6 +25,8 @@ pipelines:
             - name: art_v
           inputResources:
             - name: rsc_GR_N_MVN_0010
+          outputResources:
+            - name: rsc_BI_N_MVN_0010
         execution:
           onStart:
             - javac -version
