@@ -44,7 +44,7 @@ pipelines:
             - name: N_PB_0001_1
           outputResources:
             - name: rsc_BI_N_PB_0001_1
-      - name: N_PB_0001_1
+      - name: N_PB_0001_3
         type: PromoteBuild
         configuration:
           targetRepository: test-generic-local repo
