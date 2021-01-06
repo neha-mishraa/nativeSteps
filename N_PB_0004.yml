@@ -42,6 +42,9 @@ pipelines:
           onStart:
             - echo "hello"
         configuration:
+        environmentVariables:
+            buildNumber: 1
+            buildName: promoted-full-gradle-native
           inputSteps:
             - name: N_PB_0004_1
           outputResources:
@@ -52,23 +55,12 @@ pipelines:
         configuration:
           targetRepository: test-generic-local
           copy: true
-          environmentVariables:
-            buildNumber: 1
-            buildName: promoted-full-gradle-native
           inputResources:
             - name: rsc_BI_N_PB_0004_1
           outputResources:
             - name: rsc_BI_N_PB_0004_2
-            
-      - name: N_PB_0004_4
-        type: PublishBuildInfo
         execution:
           onStart:
             - echo "hello"
             - echo ${buildStepName}_buildName
             - echo ${buildStepName}_buildNumber
-        configuration:
-          inputSteps:
-            - name: N_PB_0004_3
-          outputResources:
-            - name: rsc_BI_N_PB_0004_1
