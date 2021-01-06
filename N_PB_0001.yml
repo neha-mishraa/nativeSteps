@@ -53,8 +53,8 @@ pipelines:
           #comment:               <string>
           copy: true
           inputResources:
-            - name: rsc_BI_N_PB_0001
+            - name: rsc_BI_N_PB_0001_1
               trigger: false
           outputResources:
-            - name: rsc_BI_N_PB_0002
+            - name: rsc_BI_N_PB_0001_2
      
