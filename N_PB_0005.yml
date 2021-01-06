@@ -3,14 +3,10 @@ resources:
     type: BuildInfo
     configuration:
       sourceArtifactory: art_v
-      buildName: promotoed-full-gradle-native
-      buildNumber: 1
   - name: rsc_BI_N_PB_0005_1
     type: BuildInfo
     configuration:
       sourceArtifactory: art_v
-      buildName: full-gradle-native
-      buildNumber: 1
   - name: rsc_GR_N_PB_0005
     type: GitRepo
     configuration:
@@ -52,6 +48,7 @@ pipelines:
         configuration:
           targetRepository: test-generic-local
           copy: true
-        execution:
-          onStart:
-            - echo "Preparing for work..."
+        inputResources:
+            - name: rsc_BI_N_PB_0001_1
+          outputResources:
+            - name: rsc_BI_N_PB_0001_2
