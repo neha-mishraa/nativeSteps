@@ -23,10 +23,10 @@ pipelines:
         execution:
           onStart:
             - printenv
-            - echo $rrsc_GR_N_MVN_0002_resourcePath
-            - ls $rsc_GR_N_MVN_0002_resourcePath
-            - ls $rrsc_GR_N_MVN_0002_resourcePath/artifactory-maven-plugin-example
-            - cat $rsc_GR_N_MVN_0002_resourcePath/artifactory-maven-plugin-example/mvn-art-config
+            - echo $res_rsc_GR_N_MVN_0002_resourcePath
+            - ls $res_rsc_GR_N_MVN_0002_resourcePath
+            - ls $res_rsc_GR_N_MVN_0002_resourcePath/artifactory-maven-plugin-example
+            - cat $rres_rsc_GR_N_MVN_0002_resourcePath/artifactory-maven-plugin-example/mvn-art-config
             - javac -version
             - mvn --version
           onSuccess:
