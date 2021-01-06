@@ -1,17 +1,49 @@
 resources:
-  - name: rsc_BI_N_PB_0001
+  - name: rsc_BI_N_PB_0001_1
     type: BuildInfo
     configuration:
       sourceArtifactory: art_v
       buildName: full-gradle-native
       buildNumber: 1
-  - name: rsc_BI_N_PB_0002
+  - name: rsc_BI_N_PB_0001_2
     type: BuildInfo
     configuration:
       sourceArtifactory: art_v
       buildName: promotoed-full-gradle-native
       buildNumber: 1
+  - name: rsc_GR_N_PB_0001
+    type: GitRepo
+    configuration:
+      gitProvider: github_neha
+      path: neha-mishraa/project-examples
 pipelines:
+  - name: N_PB_0001
+    steps:
+      - name: N_PB_0001_1
+        type: GradleBuild
+        configuration:
+          gradleCommand: clean artifactoryPublish -b build.gradle
+          sourceLocation: gradle-examples/gradle-example-minimal
+          configFileLocation: .
+          configFileName: gradle-art-config
+          inputResources:
+            - name: rsc_GR_N_PB_0001
+          integrations:
+            - name: art_v
+        execution:
+          onStart:
+            - javac -version
+            - gradle --version    
+  - name: N_PB_0001_2
+    type: PublishBuildInfo
+    execution:
+      onStart:
+        - echo "hello"
+    configuration:
+      inputSteps:
+        - name: N_PB_0001_1
+      outputResources:
+        - name: vijay_gradle
   - name: N_PB_0001
     steps:
       - name: N_PB_0001_1
@@ -27,12 +59,4 @@ pipelines:
               trigger: false
           outputResources:
             - name: rsc_BI_N_PB_0002
-        execution:
-          onStart:
-            - echo "Preparing for work..."
-          onSuccess:
-            - echo "Job well done!"
-          onFailure:
-            - echo "uh oh, something went wrong"
-          onComplete: 
-            - echo "Cleaning up some stuff"
+     
