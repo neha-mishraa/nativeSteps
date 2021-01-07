@@ -16,8 +16,8 @@ pipelines:
           sourceLocation: artifactory-maven-plugin-example
           configFileLocation: .
           configFileName: mvn-art-config
-          #resolverSnapshotRepo: <string>
-          #resolverReleaseRepo: <string>
+          resolverSnapshotRepo: snapshot-maven-virtual
+          resolverReleaseRepo: release-maven-virtual
           integrations:
             - name: art_v
           inputResources:
