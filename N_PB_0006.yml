@@ -51,8 +51,8 @@ pipelines:
         type: PromoteBuild
         configuration:
           targetRepository: test-generic-local
-#           status:                <string> 
-#           comment:               <string>
+          status: success
+          comment: sample comment 
           copy: true
           inputResources:
             - name: rsc_BI_N_PB_0006_1
