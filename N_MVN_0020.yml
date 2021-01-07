@@ -8,6 +8,8 @@ resources:
       path: neha-mishraa/project-examples
 pipelines:
   - name: N_MVN_0020
+    configuration:
+      nodePool: win_2019
     steps:
       - name: N_MVN_0020_1
         type: MvnBuild
@@ -16,8 +18,8 @@ pipelines:
           sourceLocation: artifactory-maven-plugin-example
           configFileLocation: .
           configFileName: mvn-art-config
-          #deployerSnapshotRepo: <string>   
-          #deployerReleaseRepo: <string>  
+          deployerSnapshotRepo: snapshot-maven-local 
+          deployerReleaseRepo: release-maven-local  
           integrations:
             - name: art_v
           inputResources:
