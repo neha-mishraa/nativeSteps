@@ -52,6 +52,8 @@ resources:
       version: v1.0.1
 pipelines:
   - name: N_DRB_0001
+    configuration:
+      nodePool: u18_dynamic
     steps:
       - name: To_build_Docker_Image_N_CRB_0001
         type: DockerBuild
