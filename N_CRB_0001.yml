@@ -32,7 +32,7 @@
 pipelines:
   - name: N_CRB_0001__
     configuration:
-      nodePool: u20_dynamic
+      nodePool: centOS_8_dynamic
     steps:
       - name: To_build_Docker_Image_N_CRB_0001
         type: DockerBuild
