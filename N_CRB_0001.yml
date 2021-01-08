@@ -35,6 +35,12 @@ resources:
       sourceDistribution: distribution_v
       name: test_123
       version: v1.0.${run_number}
+  - name: rel_bundle
+    type: ReleaseBundle
+    configuration:
+      sourceDistribution: distribution_v
+      name: test_123
+      version: v1.0.${run_number}
   - name: distribution_rules
     type: DistributionRule
     configuration:
@@ -107,7 +113,9 @@ pipelines:
       - name: distribute_N_CRB_0001
         type: DistributeReleaseBundle
         configuration:
-          dryRun: true
+          dryRun: false
           inputResources:
             - name: signed_bundle
             - name: distribution_rules
+          outputResources:
+            - name: rel_bundle
