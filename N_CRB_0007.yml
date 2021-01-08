@@ -1,0 +1,83 @@
+resources:
+  - name: ns_promotedInfo_N_CRB_0007
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: art_v
+      buildName: master_test_promotedInfo
+      buildNumber: 1
+  - name: res_bundle_N_CRB_0007
+    type: ReleaseBundle
+    configuration:
+      sourceDistribution: distribution_v
+      name: test_123
+      version: v1.0.1
+  - name: ns_buildInfo_N_CRB_0007
+    type: BuildInfo
+    configuration:
+      sourceArtifactory: art_v
+      buildName: master_test_buildInfo
+      buildNumber: 1514
+  - name: ns_dockerbuild_gitRepo_N_CRB_0007
+    type: GitRepo
+    configuration:
+      path: vishnurao12/sample-script
+      gitProvider: git_v
+      branches:
+        include: master
+  - name: connecting_resource_N_CRB_0007
+    type: PropertyBag
+    configuration:
+      key1: value1
+      key2: value2
+pipelines:
+  - name: N_CRB_0007
+    steps:
+      - name: To_build_Docker_Image_N_CRB_0007
+        type: DockerBuild
+        configuration:
+          affinityGroup: BasicTest
+          dockerFileLocation: .
+          dockerFileName: Dockerfile
+          dockerImageName: fullstack.jfrog-pipelines.com/docker-local/node
+          dockerImageTag: latest
+          integrations:
+            - name: art_v
+          inputResources:
+            - name: ns_dockerbuild_gitRepo_N_CRB_0007
+            - name: connecting_resource_N_CRB_0007
+      - name: To_Push_Docker_Image_N_CRB_0007
+        type: DockerPush
+        configuration:
+          affinityGroup: BasicTest
+          autoPublishBuildInfo: true
+          forceXrayScan: true
+          failOnScan: false
+          targetRepository: docker-local
+          integrations:
+            - name: art_v
+          inputSteps:
+            - name: To_build_Docker_Image_N_CRB_0007
+          outputResources:
+            - name: ns_buildInfo_N_CRB_0007
+      - name: To_promote_build_N_CRB_0007
+        type: PromoteBuild
+        configuration:
+          targetRepository: test-generic-local
+          integrations:
+            - name: art_v
+          inputResources:
+            - name: ns_buildInfo_N_CRB_0007
+          inputSteps:
+            - name: To_Push_Docker_Image_N_CRB_0007
+          outputResources:
+            - name: ns_promotedInfo_N_CRB_0007
+      - name: docker_releaseBundle_N_CRB_0007
+        type: CreateReleaseBundle
+        configuration:
+          releaseBundleName: test_123
+          releaseBundleVersion: v1.0.5
+          inputResources:
+            - name: ns_promotedInfo_N_CRB_0007
+          outputResources:
+            - name: res_bundle_N_CRB_0007
+          dryRun: true
