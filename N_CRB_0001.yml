@@ -31,53 +31,53 @@ resources:
       key2: value2
 pipelines:
   name: N_CRB_0001
-    steps:
-      - name: To_build_Docker_Image_N_CRB_0001
-        type: DockerBuild
-        configuration:
-          affinityGroup: BasicTest
-          dockerFileLocation: .
-          dockerFileName: Dockerfile
-          dockerImageName: fullstack.jfrog-pipelines.com/docker-local/node
-          dockerImageTag: latest
-          integrations:
-            - name: art_v
-          inputResources:
-            - name: ns_dockerbuild_gitRepo_N_CRB_0001
-            - name: connecting_resource_N_CRB_0001
-      - name: To_Push_Docker_Image_N_CRB_0001
-        type: DockerPush
-        configuration:
-          affinityGroup: BasicTest
-          autoPublishBuildInfo: true
-          forceXrayScan: true
-          failOnScan: false
-          targetRepository: docker-local
-          integrations:
-            - name: art_v
-          inputSteps:
-            - name: To_build_Docker_Image_N_CRB_0001
-          outputResources:
-            - name: ns_buildInfo_N_CRB_0001
-      - name: To_promote_build_N_CRB_0001
-        type: PromoteBuild
-        configuration:
-          targetRepository: test-generic-local
-          integrations:
-            - name: art_v
-          inputResources:
-            - name: ns_buildInfo_N_CRB_0001
-          inputSteps:
-            - name: To_Push_Docker_Image_N_CRB_0001
-          outputResources:
-            - name: ns_promotedInfo_N_CRB_0001
-      - name: docker_releaseBundle_N_CRB_0001
-        type: CreateReleaseBundle
-        configuration:
-          releaseBundleName: test_123
-          releaseBundleVersion: v1.0.1
-          inputResources:
-            - name: ns_promotedInfo_N_CRB_0001
-          outputResources:
-            - name: res_bundle_N_CRB_0001
-          dryRun: false
+  steps:
+    - name: To_build_Docker_Image_N_CRB_0001
+      type: DockerBuild
+      configuration:
+        affinityGroup: BasicTest
+        dockerFileLocation: .
+        dockerFileName: Dockerfile
+        dockerImageName: fullstack.jfrog-pipelines.com/docker-local/node
+        dockerImageTag: latest
+        integrations:
+          - name: art_v
+        inputResources:
+          - name: ns_dockerbuild_gitRepo_N_CRB_0001
+          - name: connecting_resource_N_CRB_0001
+    - name: To_Push_Docker_Image_N_CRB_0001
+      type: DockerPush
+      configuration:
+        affinityGroup: BasicTest
+        autoPublishBuildInfo: true
+        forceXrayScan: true
+        failOnScan: false
+        targetRepository: docker-local
+        integrations:
+          - name: art_v
+        inputSteps:
+          - name: To_build_Docker_Image_N_CRB_0001
+        outputResources:
+          - name: ns_buildInfo_N_CRB_0001
+    - name: To_promote_build_N_CRB_0001
+      type: PromoteBuild
+      configuration:
+        targetRepository: test-generic-local
+        integrations:
+          - name: art_v
+        inputResources:
+          - name: ns_buildInfo_N_CRB_0001
+        inputSteps:
+          - name: To_Push_Docker_Image_N_CRB_0001
+        outputResources:
+          - name: ns_promotedInfo_N_CRB_0001
+    - name: docker_releaseBundle_N_CRB_0001
+      type: CreateReleaseBundle
+      configuration:
+        releaseBundleName: test_123
+        releaseBundleVersion: v1.0.1
+        inputResources:
+          - name: ns_promotedInfo_N_CRB_0001
+        outputResources:
+          - name: res_bundle_N_CRB_0001
+        dryRun: false
