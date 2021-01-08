@@ -75,7 +75,7 @@ pipelines:
         type: CreateReleaseBundle
         configuration:
           releaseBundleName: test_123
-          releaseBundleVersion: v1.0.1
+          releaseBundleVersion: v1.0.2
           inputResources:
             - name: ns_promotedInfo_N_CRB_0001
           outputResources:
