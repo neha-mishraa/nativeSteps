@@ -32,7 +32,7 @@ resources:
 pipelines:
   - name: N_CRB_0001
     configuration:
-      nodePool: win-2019-1
+      nodePool: win-2019
     steps:
       - name: To_build_Docker_Image_N_CRB_0001
         type: DockerBuild
