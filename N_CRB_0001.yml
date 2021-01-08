@@ -10,7 +10,7 @@ resources:
     configuration:
       sourceDistribution: distribution_v
       name: test_123
-      version: v1.0.2
+      version: v1.0.${run_number}
   - name: ns_buildInfo_N_CRB_0001
     type: BuildInfo
     configuration:
@@ -34,7 +34,7 @@ resources:
     configuration:
       sourceDistribution: distribution_v
       name: test_123
-      version: v1.0.0
+      version: v1.0.${run_number}
   - name: distribution_rules
     type: DistributionRule
     configuration:
