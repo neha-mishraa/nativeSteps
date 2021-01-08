@@ -108,7 +108,7 @@ pipelines:
       - name: my_distribute
         type: DistributeReleaseBundle
         configuration:
-          dryRun: true                
+          dryRun: false                
           inputResources:
             - name: signed_bundle_v
               trigger: false   
