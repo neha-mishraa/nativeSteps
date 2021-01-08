@@ -1,0 +1,7 @@
+resources:
+  #   - name: signed_bundle_v
+#     type: ReleaseBundle
+#     configuration:
+#       sourceDistribution: distribution_v
+#       name: demo_rb
+#       version: v1.0.0    
