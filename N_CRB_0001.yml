@@ -30,7 +30,7 @@
 #       key1: value1
 #       key2: value2
 pipelines:
-  - name: N_CRB_0001
+  - name: N_CRB_0001_
     configuration:
       nodePool: u18_dynamic
     steps:
