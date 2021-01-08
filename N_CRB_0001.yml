@@ -40,7 +40,7 @@ resources:
     configuration:
       sourceDistribution: distribution_v
       serviceName: "*"
-      siteName: "*"
+      siteName: "HOME"
       cityName: "*"
       countryCodes:
         - "*"
