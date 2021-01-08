@@ -20,7 +20,7 @@ resources:
   - name: ns_dockerbuild_gitRepo_N_CRB_0001
     type: GitRepo
     configuration:
-      path: neha-mishraa/sample-script
+      path: vishnurao12/sample-script
       gitProvider: git_v
       branches:
         include: master
