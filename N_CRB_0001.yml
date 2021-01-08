@@ -35,6 +35,16 @@ resources:
       sourceDistribution: distribution_v
       name: test_123
       version: v1.0.0
+  - name: distribution_rules
+    type: DistributionRule
+    configuration:
+      sourceDistribution: distribution_v
+      serviceName: "*"
+      siteName: "*"
+      cityName: "*"
+      countryCodes:
+        - "CN"
+        - "GB"
 pipelines:
   - name: N_CRB_0001
     steps:
@@ -95,3 +105,10 @@ pipelines:
             - name: res_bundle_N_CRB_0001
           outputResources:
             - name: signed_bundle
+      - name: distribute_N_CRB_0001
+        type: DistributeReleaseBundle
+        configuration:
+          dryRun: true
+          inputResources:
+            - name: signed_bundle
+            - name: distribution_rules
