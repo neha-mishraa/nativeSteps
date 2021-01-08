@@ -30,7 +30,7 @@ resources:
       key1: value1
       key2: value2
 pipelines:
-  name: N_CRB_0001
+  name: sample_CRB
   steps:
     - name: To_build_Docker_Image_N_CRB_0001
       type: DockerBuild
