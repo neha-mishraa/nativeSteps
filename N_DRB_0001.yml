@@ -51,7 +51,7 @@ resources:
       name: test_123
       version: v1.0.1
 pipelines:
-  - name: N_CRB_0001
+  - name: N_DRB_0001
     steps:
       - name: To_build_Docker_Image_N_CRB_0001
         type: DockerBuild
