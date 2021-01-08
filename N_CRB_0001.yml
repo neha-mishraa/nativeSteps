@@ -43,8 +43,7 @@ resources:
       siteName: "*"
       cityName: "*"
       countryCodes:
-        - "CN"
-        - "GB"
+        - "*"
 pipelines:
   - name: N_CRB_0001
     steps:
