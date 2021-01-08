@@ -102,7 +102,8 @@ pipelines:
           inputResources:
             - name: ns_promotedInfo_N_CRB_0001
           outputResources:
-            - name: res_bundle_N_CRB_0001
+#             - name: res_bundle_N_CRB_0001
+            - name: signed_bundle_v
           dryRun: true
       - name: my_distribute
         type: DistributeReleaseBundle
