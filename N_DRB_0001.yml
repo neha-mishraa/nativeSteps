@@ -30,20 +30,20 @@ resources:
       key1: value1
       key2: value2
   - name: signed_bundle_v
-      type: ReleaseBundle
-      configuration:
-        sourceDistribution: distribution_v
-        name: demo_rb
-        version: v1.0.0  
+    type: ReleaseBundle
+    configuration:
+      sourceDistribution: distribution_v
+      name: demo_rb
+      version: v1.0.0  
   - name: distributionRuleresource
-      type: DistributionRule
-      configuration:
-        sourceDistribution: distribution_v
-        serviceName: test
-        siteName: test
-        cityName: test
-        countryCodes:
-          - "123"
+    type: DistributionRule
+    configuration:
+      sourceDistribution: distribution_v
+      serviceName: test
+      siteName: test
+      cityName: test
+      countryCodes:
+        - "123"
   - name: res_bundle_2
     type: ReleaseBundle
     configuration:
