@@ -80,4 +80,4 @@ pipelines:
             - name: ns_promotedInfo_N_CRB_0001
           outputResources:
             - name: res_bundle_N_CRB_0001
-          dryRun: false
+          dryRun: true
