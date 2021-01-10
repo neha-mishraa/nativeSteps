@@ -2,7 +2,7 @@ resources:
   - name: ns_promotedInfo_N_CRB_0007
     type: BuildInfo
     configuration:
-      sourceArtifactory: art_win
+      sourceArtifactory: art_neha
       buildName: master_test_promotedInfo
       buildNumber: 1
   - name: res_bundle_N_CRB_0007
@@ -14,7 +14,7 @@ resources:
   - name: ns_buildInfo_N_CRB_0007
     type: BuildInfo
     configuration:
-      sourceArtifactory: art_win
+      sourceArtifactory: art_neha
       buildName: master_test_buildInfo
       buildNumber: 1514
   - name: ns_dockerbuild_gitRepo_N_CRB_0007
@@ -43,7 +43,7 @@ pipelines:
           dockerImageName: fullstack.jfrog-pipelines.com/docker-local/node
           dockerImageTag: latest
           integrations:
-            - name: art_win
+            - name: art_neha
           inputResources:
             - name: ns_dockerbuild_gitRepo_N_CRB_0007
             - name: connecting_resource_N_CRB_0007
@@ -56,7 +56,7 @@ pipelines:
           failOnScan: false
           targetRepository: docker-local
           integrations:
-            - name: art_win
+            - name: art_neha
           inputSteps:
             - name: To_build_Docker_Image_N_CRB_0007
           outputResources:
@@ -66,7 +66,7 @@ pipelines:
         configuration:
           targetRepository: test-generic-local
           integrations:
-            - name: art_win
+            - name: art_neha
           inputResources:
             - name: ns_buildInfo_N_CRB_0007
           inputSteps:
