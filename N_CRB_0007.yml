@@ -2,7 +2,7 @@ resources:
   - name: ns_promotedInfo_N_CRB_0007
     type: BuildInfo
     configuration:
-      sourceArtifactory: art_win
+      sourceArtifactory: art_v
       buildName: master_test_promotedInfo
       buildNumber: 1
   - name: res_bundle_N_CRB_0007
@@ -14,7 +14,7 @@ resources:
   - name: ns_buildInfo_N_CRB_0007
     type: BuildInfo
     configuration:
-      sourceArtifactory: art_win
+      sourceArtifactory: art_v
       buildName: master_test_buildInfo
       buildNumber: 1514
   - name: ns_dockerbuild_gitRepo_N_CRB_0007
