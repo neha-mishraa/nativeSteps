@@ -8,6 +8,8 @@ resources:
       path: neha-mishraa/project-examples
 pipelines:
   - name: N_MVN_0001
+    configuration:
+      nodePool: u20dynamic
     steps:
       - name: N_MVN_0001_1
         type: MvnBuild
