@@ -19,6 +19,8 @@ resources:
       
 pipelines:
   - name: N_PB_0001
+    configuration:
+      nodePool: u20dynamic
     steps:
       - name: N_PB_0001_1
         type: GradleBuild
