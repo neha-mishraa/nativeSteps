@@ -20,7 +20,7 @@ resources:
 pipelines:
   - name: N_PB_0001
     configuration:
-      nodePool: c8dynamic
+      nodePool: c7dynamic
     steps:
       - name: N_PB_0001_1
         type: GradleBuild
