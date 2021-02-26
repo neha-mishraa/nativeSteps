@@ -31,8 +31,8 @@
 #       key2: value2
 pipelines:
   - name: N_CRB_0001_
-    configuration:
-      nodePool: u18_dynamic
+#     configuration:
+#       nodePool: u18_dynamic
     steps:
       - name: To_build_Docker_Image_N_CRB_0001
         type: DockerBuild
