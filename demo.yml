@@ -11,47 +11,47 @@ pipelines:
       - name: test_upload_step
         type: jfrog_/UploadArtifact
         configuration:
-          forceXrayScan: true
-          failOnScan: true
+#           forceXrayScan: true
+#           failOnScan: true
           targetPath: "example-repo-local/test"
           integrations:
            - name: neha_artifactory
           inputResources:
             - name: mygitRepo
               trigger: false
-      - name: test_upload_step2
-        type: jfrog_/UploadArtifact
-        configuration:
-          forceXrayScan: true
-          failOnScan: false
-          targetPath: "example-repo-local/test"
-          integrations:
-           - name: neha_artifactory
-          inputResources:
-            - name: mygitRepo
-              trigger: false
-          inputSteps:
-            - name: test_upload_step
-      - name: test_upload_step3
-        type: jfrog_/UploadArtifact
-        configuration:
-          forceXrayScan: true
-          targetPath: "example-repo-local/test"
-          integrations:
-           - name: neha_artifactory
-          inputResources:
-            - name: mygitRepo
-              trigger: false
-          inputSteps:
-            - name: test_upload_step
-      - name: test_upload_step4
-        type: jfrog_/UploadArtifact
-        configuration:
-          targetPath: "example-repo-local/test"
-          integrations:
-           - name: neha_artifactory
-          inputResources:
-            - name: mygitRepo
-              trigger: false
-          inputSteps:
-            - name: test_upload_step
+#       - name: test_upload_step2
+#         type: jfrog_/UploadArtifact
+#         configuration:
+#           forceXrayScan: true
+#           failOnScan: false
+#           targetPath: "example-repo-local/test"
+#           integrations:
+#            - name: neha_artifactory
+#           inputResources:
+#             - name: mygitRepo
+#               trigger: false
+#           inputSteps:
+#             - name: test_upload_step
+#       - name: test_upload_step3
+#         type: jfrog_/UploadArtifact
+#         configuration:
+#           forceXrayScan: true
+#           targetPath: "example-repo-local/test"
+#           integrations:
+#            - name: neha_artifactory
+#           inputResources:
+#             - name: mygitRepo
+#               trigger: false
+#           inputSteps:
+#             - name: test_upload_step
+#       - name: test_upload_step4
+#         type: jfrog_/UploadArtifact
+#         configuration:
+#           targetPath: "example-repo-local/test"
+#           integrations:
+#            - name: neha_artifactory
+#           inputResources:
+#             - name: mygitRepo
+#               trigger: false
+#           inputSteps:
+#             - name: test_upload_step
