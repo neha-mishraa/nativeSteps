@@ -11,8 +11,8 @@ pipelines:
       - name: test_upload_step
         type: jfrog_/UploadArtifact
         configuration:
-#           forceXrayScan: true
-#           failOnScan: true
+          forceXrayScan: true
+          failOnScan: false
           targetPath: "example-repo-local/test"
           integrations:
            - name: neha_artifactory
