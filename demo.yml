@@ -1,0 +1,54 @@
+
+resources:
+  - name: mygitRepo
+    type: GitRepo
+    configuration:
+      gitProvider: github_neha
+steps:
+      - name: test_upload_step
+        type: UploadArtifact
+        configuration:
+          xrayScan: true
+          failOnScan: true
+          targetPath: "example-repo-local/test"
+          integrations:
+           - name: neha_artifactory
+          inputResources:
+            - name: mygitRepo
+              trigger: false
+      - name: test_upload_step2
+        type: UploadArtifact
+        configuration:
+          xrayScan: true
+          failOnScan: false
+          targetPath: "example-repo-local/test"
+          integrations:
+           - name: neha_artifactory
+          inputResources:
+            - name: mygitRepo
+              trigger: false
+          inputSteps:
+            - name: test_upload_step
+      - name: test_upload_step3
+        type: UploadArtifact
+        configuration:
+          xrayScan: true
+          targetPath: "example-repo-local/test"
+          integrations:
+           - name: neha_artifactory
+          inputResources:
+            - name: mygitRepo
+              trigger: false
+          inputSteps:
+            - name: test_upload_step
+      - name: test_upload_step4
+        type: UploadArtifact
+        configuration:
+          targetPath: "example-repo-local/test"
+          integrations:
+           - name: neha_artifactory
+          inputResources:
+            - name: mygitRepo
+              trigger: false
+          inputSteps:
+            - name: test_upload_step
