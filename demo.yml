@@ -9,7 +9,7 @@ pipelines:
   - name: sample_uploadArtifact
     steps:
       - name: test_upload_step
-        type: UploadArtifact
+        type: jfrog_/UploadArtifact
         configuration:
           xrayScan: true
           failOnScan: true
@@ -20,7 +20,7 @@ pipelines:
             - name: mygitRepo
               trigger: false
       - name: test_upload_step2
-        type: UploadArtifact
+        type: jfrog_/UploadArtifact
         configuration:
           xrayScan: true
           failOnScan: false
@@ -33,7 +33,7 @@ pipelines:
           inputSteps:
             - name: test_upload_step
       - name: test_upload_step3
-        type: UploadArtifact
+        type: jfrog_/UploadArtifact
         configuration:
           xrayScan: true
           targetPath: "example-repo-local/test"
@@ -45,7 +45,7 @@ pipelines:
           inputSteps:
             - name: test_upload_step
       - name: test_upload_step4
-        type: UploadArtifact
+        type: jfrog_/UploadArtifact
         configuration:
           targetPath: "example-repo-local/test"
           integrations:
