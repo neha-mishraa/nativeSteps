@@ -4,7 +4,9 @@ resources:
     type: GitRepo
     configuration:
       gitProvider: github_neha
-steps:
+pipelines:
+  - name: sample_uploadArtifact
+    steps:
       - name: test_upload_step
         type: UploadArtifact
         configuration:
