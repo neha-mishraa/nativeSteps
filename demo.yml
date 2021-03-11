@@ -6,9 +6,9 @@ resources:
       gitProvider: github_neha
       path: neha-mishraa/sample-maven
 pipelines:
-  - name: sample_uploadArtifact
+  - name: UA
     steps:
-      - name: test_upload_step
+      - name: TUS
         type: jfrog_/UploadArtifact
         configuration:
           forceXrayScan: true
