@@ -12,7 +12,7 @@ pipelines:
         type: jfrog_/UploadArtifact
         configuration:
           forceXrayScan: true
-          failOnScan: false
+          failOnScan: true
           targetPath: "example-repo-local/test"
           integrations:
            - name: neha_artifactory
