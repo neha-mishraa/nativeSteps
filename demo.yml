@@ -4,7 +4,7 @@ resources:
     type: GitRepo
     configuration:
       gitProvider: github_neha
-      path: neha-mishraa/project-examples
+      path: neha-mishraa/sample-maven
 pipelines:
   - name: sample_uploadArtifact
     steps:
