@@ -1,6 +1,3 @@
-template: true
-valuesFilePath: ../values/gitRepoValues.yml
-
 resources:
   - name: S_GoBuild_0022_GitRepo
     type: GitRepo
