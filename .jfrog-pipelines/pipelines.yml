@@ -18,7 +18,7 @@ pipelines:
         type: GoBuild
         configuration:
           integrations:
-            - name: s_artifactory
+            - name: art
           inputResources:
             - name: S_GoBuild_0022_GitRepo
           resolverRepo: test-automation-go-virtual
